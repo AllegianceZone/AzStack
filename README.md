@@ -31,6 +31,8 @@ Discourse:
     see app.yml in this repo
   sudo ./launcher bootstrap app
   sudo ./launcher start app
+  sudo nano /etc/nginx/discourse.conf
+    change server_name _ to host.domain.tld _
     login to website as admin and enable restore, restore latest bacukup in this repo via gui
     reboot
 ```
@@ -75,6 +77,19 @@ Trac:
   chown www-data:www-data .python-eggs
   tar -xzf /home/imago/dist-packages.tar.gz /usr/local/lib/python2.7
   put trac.conf in /etc/nginx/conf.d
+  
+  server {
+    server_name trac.allegiancezone.com trac.spacetechnology.net trac2.spacetechnology.net trac;
+client_max_body_size 200M;
+    listen 80;
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+  
   sv start tracd
 ```
 AZ CGI:
@@ -84,7 +99,8 @@ sudo /etc/nginx/conf.d/cgi.conf
 
 server {
 root  /var/www;
-        server_name azforum.cloudapp.net ;
+        server_name azforum.cloudapp.net azstack.cloudapp.net;
+        client_max_body_size 200M;
     listen              80;
     listen              443 ssl;
     ssl_certificate     azforum.cloudapp.net.crt;
