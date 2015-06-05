@@ -299,6 +299,11 @@ cpan install AnyEvent::JSONRPC::Lite::Client
 cpan install AnyEvent::JSONRPC::Lite::Server
 cpan install RPC::XML::Client
 cpan install String::IRC
+cpan install WWW::Mechanize
+
+sudo nano /home/imago/pass.txt
+allegdb
+
 ```
 
 Installer:
