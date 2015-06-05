@@ -54,10 +54,31 @@ Trac:
       postgres://tracuser:allegdb@/trac
   sudo -u postgres psql trac -f trac-notify.sql
     get trac-notify.sql from this repo
+  cd /etc/service
+  sudo mkdir tracd
+  cd tracd
+  sudo nano run
+    #!/bin/sh
+    exec 2>&1
+    OAUTHLIB_INSECURE_TRANSPORT=1 PYTHON_EGG_CACHE=/var/www/.python-eggs exec chpst -u www-data -U www-data /usr/local/bin/tracd -s -auth="*,/opt/trac/.htpasswd,/opt/trac" --port 8000 /opt/trac
+  chmod +x run
+  cd /opt/trac
+  sudo nano .htpasswd
+    Imago:$apr1$n4fw6CCM$qTdtelsxSqA4japDs5U6m0
+    builder:$apr1$.SjXPbsw$lDmxsS/983hPrNst1SqkL/
+  chown www-data:www-data .htpasswd
+  cd /var/www
+  mkdir .python-eggs
+  chown www-data:www-data .python-eggs
   
 ```
 AZ CGI:
 ```
   WIP
+```
+
+AllegZoneBot:
+```
+
 ```
 
