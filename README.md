@@ -1,8 +1,8 @@
 Backups:
 ```
   Trac: 
-    sudo trac-admin /opt/trac hotcopy /tmp/trachotcopy
-    sudo tar -cvzf ~/trachotcopy.tar.gz /tmp/trachotcopy
+    sudo tar -czvf /home/imago/dist-packages.tar.gz /usr/local/lib/python2.7/dist-packages
+    sudo -u postgres pg_dump trac > /home/imago/trac.sql
   Discourse: 
     login as admin to website and use the backup gui
   AZ CGI:
@@ -52,8 +52,8 @@ Trac:
   sudo trac-admin /opt/trac initenv
     use connection string:
       postgres://tracuser:allegdb@/trac
-  sudo -u postgres psql trac -f trac-notify.sql
-    get trac-notify.sql from this repo
+  sudo -u postgres psql trac -f trac.sql
+    get trac.sql from backup
   cd /etc/service
   sudo mkdir tracd
   cd tracd
