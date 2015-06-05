@@ -281,6 +281,7 @@ cpan install Convert::Binary::C
 cpan install JSON
 cpan install DBI
 cpan install DBD::Pg
+cpan install FCGI
 ```
 
 AllegZoneBot:
