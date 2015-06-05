@@ -6,6 +6,7 @@ Backups:
   Discourse: 
     login as admin to website and use the backup gui
   AZ CGI:
+  sudo tar -czvf /home/imago/www.tar.gz /var/www
 ```
 
 Swap:
