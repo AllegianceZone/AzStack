@@ -70,7 +70,9 @@ Trac:
   cd /var/www
   mkdir .python-eggs
   chown www-data:www-data .python-eggs
-  
+  put dist-packages in /usr/local/lib/python2.7/dist-packages
+  put trac.conf in /etc/nginx/conf.d
+  sv start tracd
 ```
 AZ CGI:
 ```
@@ -82,3 +84,21 @@ AllegZoneBot:
 
 ```
 
+Installer:
+```
+in /etc/nginx/conf.d/installer.conf"
+
+server {
+    listen   80;
+    server_name installer.allegiancezone.com installer.spacetechnology.net installer;
+    location / {
+      rewrite ^ http://cdn.allegiancezone.com/install/AllegSetup_211.exe permanent;
+    }
+    location /latest {
+      rewrite ^ http://cdn.allegiancezone.com/install/AllegSetup_211.exe permanent;
+    }
+    location /latest.exe {
+      rewrite ^ http://cdn.allegiancezone.com/install/AllegSetup_211.exe permanent;
+    }
+}
+```
