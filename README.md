@@ -282,7 +282,21 @@ cpan install DBD::Pg
 
 AllegZoneBot:
 ```
+copy over the code to ./allegbot
+chmod +x allegbot
+cd /etc/service
+mkdir allegbot
+cd allegbot
+sudo nano run
+#!/bin/sh
+exec /home/imago/allegbot
 
+cpan install AnyEvent
+cpan install AnyEvent::IRC::Client
+cpan install AnyEvent::JSONRPC::Lite::Client
+cpan install AnyEvent::JSONRPC::Lite::Server
+cpan install RPC::XML::Client
+cpan install String::IRC
 ```
 
 Installer:
