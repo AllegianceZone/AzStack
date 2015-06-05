@@ -52,6 +52,8 @@ Trac:
   sudo trac-admin /opt/trac initenv
     use connection string:
       postgres://tracuser:allegdb@/trac
+  sudo -u postgres dropdb trac
+  sudo -u postgres createdb trac
   sudo -u postgres psql trac -f trac.sql
     get trac.sql from backup
   cd /etc/service
