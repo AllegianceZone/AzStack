@@ -322,6 +322,9 @@ cpan install WWW::Mechanize
 sudo nano /home/imago/pass.txt
 allegdb
 
+apt-get install cpulimit
+
+
 ```
 
 Installer:
